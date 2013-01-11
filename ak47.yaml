@@ -1,0 +1,26 @@
+'/etc/network/interfaces':
+        wan:
+            ifname: eth0
+            mode: dhcp
+        lan:
+            ifname: wlan2
+            mode: static
+            wlan_mode: ap
+            ipaddr: 192.168.1.1
+            netmask: 255.255.255.0
+        post-action:
+            'service network restart'
+            
+'dnsmasq.conf':
+        config:
+            range: 192.168.1.2-192.168.1.199
+            iface: wlan2
+        post-action:
+            'service dnsmasq restart'
+
+'/home/nimbus/.idepositbox.conf':
+        config:
+            install_path: /home/nimbus
+        post-action:
+            'service nimbusfs restart'
+

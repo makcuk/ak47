@@ -1,0 +1,10 @@
+auto lo
+iface lo inet loopback
+
+# ${section_name}
+auto ${ifname}
+interface ${ifname} inet ${mode}
+% if mode == 'static':
+    address ${ipaddr}
+    netmask ${netmask}
+% endif
