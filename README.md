@@ -1,4 +1,6 @@
 ak47
 ====
 
-Very simple lightweight script to generate config files based on yaml data file. Based on Mako templates. 
+Simple script to process Mako-based config files templates. Plan to use for embedded linux
+boards, like RPi, Hackberry A10, etc. Right now you need to tweak YAML by hand, in future
+small web UI will be created. 
