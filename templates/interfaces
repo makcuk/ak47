@@ -1,10 +1,14 @@
-auto lo
-iface lo inet loopback
-
 # ${section_name}
 auto ${ifname}
-interface ${ifname} inet ${mode}
+iface ${ifname} inet ${mode}
 % if mode == 'static':
     address ${ipaddr}
     netmask ${netmask}
+% endif
+% if ifname == 'br0':
+    bridge_ports: ${bridge_ports}
+% endif
+% if wlanmode == 'client':
+    wpa-ssid ${wpassid}
+    wpa-psk  ${wpapsk}
 % endif
